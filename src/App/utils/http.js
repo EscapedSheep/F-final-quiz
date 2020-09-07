@@ -2,7 +2,9 @@ export function fetchStudents() {
   const url = 'http://localhost:8080/students';
   return fetch(url)
     .then((res) => res.json() )
-    .catch((err) => err )
+    .catch((err) => {
+      console.log(err)
+    })
 }
 
 export function fetchTeam() {
@@ -30,7 +32,7 @@ export function addStudent(name) {
 }
 
 export function changeTeamName(oldN, newN) {
-  const url = 'http://localhost:8080/team';
+  const url = 'http://localhost:8080/students/team';
   const request = {
     oldName: oldN,
     newName: newN

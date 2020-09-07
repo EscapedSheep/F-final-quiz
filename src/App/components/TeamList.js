@@ -5,7 +5,6 @@ import './style/teamList.css'
 class TeamList extends Component{
   state = {
     teams: [],
-    newName: ''
   }
 
   componentDidMount() {
@@ -35,12 +34,19 @@ class TeamList extends Component{
   }
 
   handleChangeTeamName = (name, event) => {
+    let teamsCopy = this.state.teams
     if (event.keyCode === 13) {
-      changeTeamName(name, event.target.value)
+      changeTeamName(name, event.target.value.trim())
         .then((res) => {
-          this.setState({
-            teams: res
-          })
+          if (!res) {
+            this.setState({
+              teams: res
+            })
+          }
+          else {
+            alert("409 error, team name conflict")
+            location.reload();
+          }
         })
         .catch((error) => {
           console.log(error)
@@ -52,7 +58,7 @@ class TeamList extends Component{
     const { team } = props;
     return (
       <div className='teamSection'>
-        <textarea className='teamName' rows='1' cols='auto' onKeyUp={this.handleChangeTeamName.bind(this, team.teamName)} defaultValue={team.teamName}></textarea>
+        <input className='teamName' onKeyUp={this.handleChangeTeamName.bind(this, team.teamName)} defaultValue={team.teamName}></input>
         <div className='teamMember'>
           {
             team.teamStudent.map((student) => (
