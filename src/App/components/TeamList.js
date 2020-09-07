@@ -44,7 +44,6 @@ class TeamList extends Component{
             })
           }
           else {
-            alert("409 error, team name conflict")
             location.reload();
           }
         })
