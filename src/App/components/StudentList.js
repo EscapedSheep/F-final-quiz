@@ -23,12 +23,12 @@ class StudentList extends Component {
 
   render() {
     return (
-      <div>
+      <div id='main'>
         <h1>学员列表</h1>
         <div className='list'>
         {
           this.state.students.map((student) => (
-            <div key={student.id}>
+            <div key={student.id} className='student'>
               <label for='studentName'>{student.id}. </label>
               <text name='studentName'>{student.name}</text>
             </div>
