@@ -1,14 +1,29 @@
 import React, { Component } from 'react';
-import { fetchTeam } from '../utils/http';
+import { fetchTeam, changeTeamName, getGroupTeam } from '../utils/http';
 import './style/teamList.css'
 
 class TeamList extends Component{
   state = {
-    teams: []
+    teams: [],
+    newName: ''
+  }
+
+  componentDidMount() {
+    fetchTeam()
+      .then((res) => {
+        if(res[0].teamStudent.length > 0) {
+          this.setState({
+            teams: res
+          })
+        }
+    })
+      .catch((error) => {
+        console.log(error)
+      })
   }
 
   handleGroupStudent() {
-    fetchTeam()
+    getGroupTeam()
       .then((res) => {
         this.setState({
           teams: res
@@ -19,11 +34,25 @@ class TeamList extends Component{
       })
   }
 
+  handleChangeTeamName = (name, event) => {
+    if (event.keyCode === 13) {
+      changeTeamName(name, event.target.value)
+        .then((res) => {
+          this.setState({
+            teams: res
+          })
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    }
+  }
+
   TeamSection = (props) => {
     const { team } = props;
     return (
       <div className='teamSection'>
-        <h1 className='teamName'>{team.teamName}</h1>
+        <textarea className='teamName' rows='1' cols='auto' onKeyUp={this.handleChangeTeamName.bind(this, team.teamName)} defaultValue={team.teamName}></textarea>
         <div className='teamMember'>
           {
             team.teamStudent.map((student) => (
