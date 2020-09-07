@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import fetchStudents from '../utils/http';
+import { fetchStudents } from '../utils/http';
 import './style/studentList.css';
 
 class StudentList extends Component {
@@ -12,8 +12,6 @@ class StudentList extends Component {
       .then((res) => {
         this.setState({
           students: res
-        }, () => {
-          console.log(res)
         })
       })
       .catch((error) => {
@@ -29,8 +27,8 @@ class StudentList extends Component {
         {
           this.state.students.map((student) => (
             <div key={student.id} className='student'>
-              <label for='studentName'>{student.id}. </label>
-              <text name='studentName'>{student.name}</text>
+              <label>{student.id}. </label>
+              {student.name}
             </div>
           ))
         }
