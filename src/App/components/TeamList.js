@@ -62,7 +62,7 @@ class TeamList extends Component{
         <div className='teamMember'>
           {
             team.teamStudent.map((student) => (
-              <div key={student.id} className='student'>
+              <div key={student.id} className='teamStudent'>
                 <label>{student.id}. </label>
                 {student.name}
               </div>

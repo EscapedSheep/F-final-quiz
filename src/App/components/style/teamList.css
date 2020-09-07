@@ -35,3 +35,9 @@ button {
     border: 1px solid #929aab;
     margin: 40px 0;
 }
+
+.teamStudent {
+    background-color: #eeeeee;
+    text-align: center;
+    padding: 5px;
+}
