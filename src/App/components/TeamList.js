@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { fetchTeam } from '../utils/http';
+import './style/teamList.css'
 
 class TeamList extends Component{
   state = {
@@ -11,8 +12,6 @@ class TeamList extends Component{
       .then((res) => {
         this.setState({
           teams: res
-        }, () => {
-          console.log(this.state.teams)
         })
       })
       .catch((error) => {
@@ -23,9 +22,9 @@ class TeamList extends Component{
   TeamSection = (props) => {
     const { team } = props;
     return (
-      <div>
-        <h1>{team.teamName}</h1>
-        <div>
+      <div className='teamSection'>
+        <h1 className='teamName'>{team.teamName}</h1>
+        <div className='teamMember'>
           {
             team.teamStudent.map((student) => (
               <div key={student.id} className='student'>

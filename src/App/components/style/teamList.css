@@ -1,0 +1,36 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+button {
+    background-color: #ea5455;
+    color: white;
+    width: 150px;
+    height: 50px;
+    border: none;
+}
+
+.teamName {
+    text-align: center;
+    background-color:  #929aab;
+    color: white;
+    border: none;
+    margin: 0;
+}
+
+.teamMember {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 80px);
+    grid-auto-rows: 30px;
+    grid-gap: 50px;
+    margin-left: 50px;
+}
+
+.teamSection {
+    border: 1px solid #929aab;
+    margin: 40px 0;
+
+}
