@@ -1,0 +1,9 @@
+.pop-over {
+    display: flex;
+    gap: 5px
+}
+
+.pop-field {
+    background-color:  #929aab;
+    padding: 5px;
+}
