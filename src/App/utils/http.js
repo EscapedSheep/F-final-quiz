@@ -1,5 +1,7 @@
+const baseUrl = 'http://localhost:8080/'
+
 export function fetchStudents() {
-  const url = 'http://localhost:8080/students';
+  const url = `${baseUrl}trainees?grouped=false`;
   return fetch(url)
     .then((res) => res.json() )
     .catch((err) => {
@@ -21,11 +23,14 @@ export function getGroupTeam() {
     .catch((err) => err )
 }
 
-export function addStudent(name) {
-  const url = 'http://localhost:8080/students';
+export function addStudent(student) {
+  const url = `${baseUrl}trainees`;
   return fetch(url, {
     method: 'POST',
-    body: name
+    body: JSON.stringify(student),
+    headers: {
+      'content-type': 'application/json; charset=utf-8'
+    }
   })
     .then((res) => res.json())
     .catch((err) => err);

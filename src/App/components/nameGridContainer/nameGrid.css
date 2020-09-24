@@ -6,17 +6,16 @@
     margin-left: 50px;
 }
 
-.student {
+.person {
     background-color: #eeeeee;
     text-align: center;
-    padding-top: 10px
 }
 
-h1 {
-    margin: 10px;
+.person-name {
+    margin-top: 10px;
 }
 
-#nameInput {
+.input {
     border: 1px #929aab;
     text-align: center;
 }

@@ -34,7 +34,7 @@ class TeamList extends Component{
   }
 
   handleChangeTeamName = (name, event) => {
-    let teamsCopy = this.state.teams
+    const teamsCopy = this.state.teams
     if (event.keyCode === 13) {
       changeTeamName(name, event.target.value.trim())
         .then((res) => {
@@ -57,7 +57,7 @@ class TeamList extends Component{
     const { team } = props;
     return (
       <div className='teamSection'>
-        <input className='teamName' onKeyUp={this.handleChangeTeamName.bind(this, team.teamName)} defaultValue={team.teamName}></input>
+        <input className='teamName' onKeyUp={this.handleChangeTeamName.bind(this, team.teamName)} defaultValue={team.teamName}/>
         <div className='teamMember'>
           {
             team.teamStudent.map((student) => (
