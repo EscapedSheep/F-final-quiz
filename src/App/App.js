@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.scss';
 import StudentList from './components/student/StudentList';
-import TeamList from './components/TeamList';
+import TeamList from './components/team/TeamList';
 import AddStudentForm from './components/student/addStudentForm';
 import TeacherList from './components/Teacher/teacherList';
 

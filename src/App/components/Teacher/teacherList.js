@@ -44,7 +44,7 @@ class TeacherList extends Component {
           people={this.state.teachers}
           inputDisplay
           handleInput={this.handleAddTeacher}
-          placerHolder="讲师"
+          placeHolder="讲师"
           handleDelete={deleteTeacher}
         />
       </div>

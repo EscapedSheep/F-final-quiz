@@ -35,7 +35,7 @@ class StudentList extends Component {
           handleClick={this.handleAddStudent}
           handleDelete={deleteStudent}
           inputDisplay
-          placerHolder="学员"
+          placeHolder="学员"
         />
       </div>
     )

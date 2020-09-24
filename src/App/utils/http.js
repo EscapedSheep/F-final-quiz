@@ -63,15 +63,17 @@ export function deleteTeacher(id) {
 }
 
 export function fetchTeam() {
-  const url = 'http://localhost:8080/students/team';
+  const url = `${baseUrl}groups`;
   return fetch(url)
     .then((res) => res.json() )
     .catch((err) => err )
 }
 
-export function getGroupTeam() {
-  const url = 'http://localhost:8080/students/group';
-  return fetch(url)
+export function autoGrouping() {
+  const url = `${baseUrl}groups/auto-grouping`;
+  return fetch(url, {
+    method: 'POST'
+  })
     .then((res) => res.json() )
     .catch((err) => err )
 }
@@ -89,19 +91,19 @@ export function addStudent(student) {
     .catch((err) => err);
 }
 
-export function changeTeamName(oldN, newN) {
-  const url = 'http://localhost:8080/students/team';
-  const request = {
-    oldName: oldN,
-    newName: newN
-  }
-  return fetch(url, {
-    method: 'POST',
-    body: JSON.stringify(request),
-    headers: {
-      'content-type': 'application/json; charset=utf-8'
-    }
-  })
-    .then((res) => res.json())
-    .catch((err) => err);
-}
+// export function changeTeamName(oldN, newN) {
+//   const url = 'http://localhost:8080/students/team';
+//   const request = {
+//     oldName: oldN,
+//     newName: newN
+//   }
+//   return fetch(url, {
+//     method: 'POST',
+//     body: JSON.stringify(request),
+//     headers: {
+//       'content-type': 'application/json; charset=utf-8'
+//     }
+//   })
+//     .then((res) => res.json())
+//     .catch((err) => err);
+// }
