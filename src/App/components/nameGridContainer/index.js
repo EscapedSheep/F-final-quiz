@@ -2,16 +2,16 @@ import React from 'react';
 import DeleteModal from '../deleteModal';
 import './nameGrid.css';
 
-const NameContainer = ({people, handleInput, inputDisplay, handleDelete}) => (
+const NameContainer = ({people, handleInput, inputDisplay, handleDelete, handleClick, placerHolder}) => (
   <div className='list'>
     {
       people.map((person) => (
         <div key={person.id} className='person'>
-          <DeleteModal person={person} onOk={handleDelete}/>
+          <DeleteModal person={person} onOk={handleDelete} title={placerHolder}/>
         </div>
       ))
     }
-    {inputDisplay && <input placeholder="+添加学员" className='person input' onKeyUp={handleInput} onClick={handleInput}/>}
+    {inputDisplay && <input placeholder={`+添加${placerHolder}`} className='person input' onKeyUp={handleInput} onClick={handleClick}/>}
   </div>
 )
 

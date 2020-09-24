@@ -7,8 +7,7 @@ import NameContainer from '../nameGridContainer/index';
 class StudentList extends Component {
   state = {
     students: [],
-    name: ''
-  }
+  };
 
   componentDidMount() {
     fetchStudents()
@@ -22,40 +21,21 @@ class StudentList extends Component {
       })
   }
 
-  handleNameChange = (event) => {
-    this.setState({
-      name: event.target.value
-    })
-  }
-
-  // handleAddStudent = (event) => {
-  //   event.preventDefault();
-  //   if (event.keyCode === 13) {
-  //     addStudent(event.target.value)
-  //       .then((res) => {
-  //         this.setState({
-  //           students: res,
-  //           name: ''
-  //         })
-  //       })
-  //       .catch((error) => {
-  //         console.log(error)
-  //       })
-  //   }
-  // }
   handleAddStudent = () => {
     this.props.history.push('/add')
   };
 
   render() {
     return (
-      <div id='main'>
+      <div>
         <h1 className="list-header">学员列表</h1>
         <NameContainer
           people={this.state.students}
           handleInput={this.handleAddStudent}
+          handleClick={this.handleAddStudent}
           handleDelete={deleteStudent}
           inputDisplay
+          placerHolder="学员"
         />
       </div>
     )

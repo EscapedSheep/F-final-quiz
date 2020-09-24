@@ -23,6 +23,45 @@ export function deleteStudent(id) {
     .catch((err) => console.log(err))
 }
 
+export function fetchTeachers() {
+  const url = `${baseUrl}trainers?grouped=false`;
+  return fetch(url)
+    .then((res) => res.json() )
+    .catch((err) => {
+      console.log(err)
+    })
+}
+
+export function addTeachers(n) {
+  const url = `${baseUrl}trainers`;
+  const teacher = {
+    name: n
+  }
+  return fetch(url, {
+    method: 'POST',
+    body: JSON.stringify(teacher),
+    headers: {
+      'content-type': 'application/json; charset=utf-8'
+    }
+  })
+    .then((res) => res.json())
+    .catch((err) => err);
+}
+
+export function deleteTeacher(id) {
+  const url = `${baseUrl}trainers/${id}`;
+  return fetch(url, {
+    method: 'DELETE'
+  })
+    .then((res) => {
+      if(res.status !== 204) {
+        return res.json();
+      }
+      return null;
+    })
+    .catch((err) => console.log(err))
+}
+
 export function fetchTeam() {
   const url = 'http://localhost:8080/students/team';
   return fetch(url)

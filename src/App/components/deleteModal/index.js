@@ -33,18 +33,18 @@ class DeleteModal extends React.Component {
   };
 
   render() {
-    const { person } = this.props;
+    const { person, title } = this.props;
     return (
       <>
         <input type='button' value={`${person.id}.${person.name}`} className='person-name' onClick={this.showModal}/>
         <Modal
-          title="删除学员"
+          title={`删除${title}`}
           visible={this.state.visible}
           onOk={this.handleOk}
           onCancel={this.handleCancel}
           closable={false}
         >
-          <p>是否要删除学员{person.id}.{person.name}</p>
+          <p>是否要删除{title}{person.id}.{person.name}</p>
         </Modal>
       </>
     );

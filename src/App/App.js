@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Switch, Route, NavLink, Redirect } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.scss';
 import StudentList from './components/student/StudentList';
 import TeamList from './components/TeamList';
 import AddStudentForm from './components/student/addStudentForm';
+import TeacherList from './components/Teacher/teacherList';
 
-const Temp = () => (
+const Home = () => (
   <>
     <TeamList />
+    <TeacherList />
     <StudentList />
   </>
 );
@@ -17,10 +19,10 @@ class App extends Component {
     return (
       <div data-testid="app" className="App">
         <BrowserRouter>
-          <switch>
-            <Route exact path='/' component={Temp} />
+          <Switch>
+            <Route exact path='/' component={Home} />
             <Route path='/add' component={AddStudentForm} />
-          </switch>
+          </Switch>
         </BrowserRouter>
       </div>
     );
