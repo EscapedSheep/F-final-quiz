@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom'
-import { fetchStudents, addStudent } from '../../utils/http';
+import { fetchStudents, deleteStudent } from '../../utils/http';
 import './studentList.css';
 import NameContainer from '../nameGridContainer/index';
 
@@ -54,6 +54,7 @@ class StudentList extends Component {
         <NameContainer
           people={this.state.students}
           handleInput={this.handleAddStudent}
+          handleDelete={deleteStudent}
           inputDisplay
         />
       </div>

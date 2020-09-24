@@ -9,6 +9,20 @@ export function fetchStudents() {
     })
 }
 
+export function deleteStudent(id) {
+  const url = `${baseUrl}trainees/${id}`;
+  return fetch(url, {
+    method: 'DELETE'
+  })
+    .then((res) => {
+      if(res.status !== 204) {
+        return res.json();
+      }
+      return null;
+    })
+    .catch((err) => console.log(err))
+}
+
 export function fetchTeam() {
   const url = 'http://localhost:8080/students/team';
   return fetch(url)

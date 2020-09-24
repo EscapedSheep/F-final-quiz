@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
+import DeleteModal from '../deleteModal';
 import './nameGrid.css';
 
-const NameContainer = ({people, handleInput, inputDisplay}) => (
+const NameContainer = ({people, handleInput, inputDisplay, handleDelete}) => (
   <div className='list'>
     {
       people.map((person) => (
         <div key={person.id} className='person'>
-          <p className='person-name'>{person.id}. {person.name}</p>
+          <DeleteModal person={person} onOk={handleDelete}/>
         </div>
       ))
     }
