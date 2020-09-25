@@ -15,6 +15,7 @@ class DeleteModal extends React.Component {
     console.log(e);
     const { onOk,person } = this.props;
     onOk(person.id).then(res => {
+      // TODO Feedback: 应该去判断400 error
       if( res === null) {
         location.reload()
       } else {
@@ -37,6 +38,7 @@ class DeleteModal extends React.Component {
     const {name, email, office, zoomId, github, id} = this.props.person;
     return(
     <div className="pop-over">
+      {/*// TODO Feedback:不适合用p标签*/}
       {name && <p className="pop-field">name: {name}</p>}
       {email && <p className="pop-field">email: {email}</p>}
       {office && <p className="pop-field">office: {office}</p>}
@@ -50,7 +52,9 @@ class DeleteModal extends React.Component {
     const { person, title } = this.props;
     return (
       <>
+        {/*// TODO Feedback:本质上，这个组件并不是DeleteModal，而是Person*/}
         <Popover content={this.content} trigger="hover">
+          {/*// TODO Feedback: 既然type是button，为什么用input呢*/}
         <input type='button' value={`${person.id}.${person.name}`} className='person-name' onClick={this.showModal}/>
         </Popover>
         <Modal

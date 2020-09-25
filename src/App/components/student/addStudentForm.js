@@ -7,6 +7,7 @@ import { addStudent } from '../../utils/http';
 
 class AddStudentForm extends Component{
   onFinish = (values) => {
+    // TODO Feedback: 不要提交console.log
     console.log('Received values of form: ', values);
     addStudent(values).then(() => this.props.history.push('/')).catch(e => console.log(e));
   };
@@ -26,6 +27,7 @@ class AddStudentForm extends Component{
         }}
         onFinish={this.onFinish}
       >
+        {/*// TODO Feedback:rules可以考虑提取整个对象*/}
         <Form.Item
           name="name"
           label="姓名"

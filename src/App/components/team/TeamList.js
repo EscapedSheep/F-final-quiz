@@ -30,6 +30,7 @@ class TeamList extends Component{
           if (res.messages !== undefined) {
             message.error(res.message)
           } else {
+            // TODO Feedback: 不建议用reload去刷新页面，在React中页面的render是通过state的改变去触发的
             location.reload()
           }
         })
@@ -42,6 +43,7 @@ class TeamList extends Component{
   TeamSection = (props) => {
     const { team } = props;
     return (
+      // TODO Feedback: 没有使用语义标签
       <div className='team-section'>
         <div className="team-header">
         <input className='name-input' defaultValue={team.name} onKeyUp={this.handleChangeTeamName.bind(this, team.id)}/>

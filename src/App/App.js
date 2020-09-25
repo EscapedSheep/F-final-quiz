@@ -6,8 +6,10 @@ import TeamList from './components/team/TeamList';
 import AddStudentForm from './components/student/addStudentForm';
 import TeacherList from './components/Teacher/teacherList';
 
+// TODO Feedback: 建议提取到单独的文件管理
 const Home = () => (
   <>
+    {/*// TODO Feedback:根据后台资源，命名为groups，trainers和trainees更统一*/}
     <TeamList />
     <TeacherList />
     <StudentList />
