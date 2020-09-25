@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetchTeam, autoGrouping, changeTeamName } from '../../utils/http';
+import { fetchTeam, autoGrouping, changeTeamName,deleteTeacher,deleteStudent } from '../../utils/http';
 import NameContainer from '../nameGridContainer';
 import { message } from 'antd';
 import './teamList.css';
@@ -46,12 +46,13 @@ class TeamList extends Component{
         <div className="team-header">
         <input className='name-input' defaultValue={team.name} onKeyUp={this.handleChangeTeamName.bind(this, team.id)}/>
         <div className="team-trainer">
-          <NameContainer people={team.trainers} placeHolder="讲师"/>
+          <NameContainer people={team.trainers} placeHolder="讲师" handleDelete={deleteTeacher}/>
         </div>
         </div>
           <NameContainer
             people={team.trainees}
             placeHolder="学员"
+            handleDelete={deleteStudent}
           />
       </div>
     )
